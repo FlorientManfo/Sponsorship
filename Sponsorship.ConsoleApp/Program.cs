@@ -13,7 +13,7 @@ namespace Sponsorship.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test (2).xlsx");
+            var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test.xlsx");
 
             List<FirstLevel> ticFirstLevel = manager.GetFirstLevels();
 
