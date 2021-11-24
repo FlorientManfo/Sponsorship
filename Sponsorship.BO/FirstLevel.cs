@@ -10,20 +10,20 @@ namespace Sponsorship.BO
     {
 
         public SecondLevel Parrain { get; set; }
-        public int Niveau { get; set; }
+        public int Level { get; set; }
         public FirstLevel()
         {
-            Niveau = 1;
+            Level = 1;
             Parrain = null;
         }
-        public FirstLevel(string nom, string filiere, int telephone, string email) : base(nom, filiere, telephone, email)
+        public FirstLevel(string fullName, string faculty, int phone, string email) : base(fullName, faculty, phone, email)
         {
-            Niveau = 1;
+            Level = 1;
             Parrain = null;
         }
-        public FirstLevel(FirstLevel etudiant) : base(new Student(etudiant.Nom, etudiant.Filiere, etudiant.Telephone, etudiant.Email))
+        public FirstLevel(FirstLevel etudiant) : base(new Student(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email))
         {
-            Niveau = etudiant.Niveau;
+            Level = etudiant.Level;
             Parrain = etudiant.Parrain ;
         }
     }

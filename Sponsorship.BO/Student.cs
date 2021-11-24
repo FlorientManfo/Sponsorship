@@ -9,9 +9,9 @@ namespace Sponsorship.BO
     [Serializable]
     public class Student
     {
-        public string Nom { get; set; }
-        public string Filiere { get; set; }
-        public int Telephone { get; set; }
+        public string FullName { get; set; }
+        public string Faculty { get; set; }
+        public int Phone { get; set; }
         public string Email { get; set; }
 
         public Student()
@@ -19,15 +19,15 @@ namespace Sponsorship.BO
 
         }
 
-        public Student(string nom, string specialite, int telephone, string email)
+        public Student(string fullName, string faculty, int phone, string email)
         {
-            Nom = nom;
-            Filiere = specialite;
-            Telephone = telephone;
+            FullName = fullName;
+            Faculty = faculty;
+            Phone = phone;
             Email = email;
         }
 
-        public Student(Student etudiant):this(etudiant.Nom, etudiant.Filiere, etudiant.Telephone, etudiant.Email)
+        public Student(Student etudiant):this(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email)
         {
         }
     }

@@ -24,78 +24,72 @@ namespace Sponsorship.WinForms
         public Form1()
         {
             InitializeComponent();
-            //niveau1s = new List<FirstLevel>() { new Niveau1("Manfo", "tic", 'M', "manfoflorient@gmail.com", 1, null),new Niveau1("jiengap", "tic", 'M', "manfoflorient@gmail.com", 1, null)};
-            //niveau2s = new List<SecondLevel>() { new Niveau2("rosvalde", "tic", 'M', "manfoflorient@gmail.com", 1), new Niveau2("jiengap", "tic", 'M', "manfoflorient@gmail.com", 1), new Niveau2("manfo", "tic", 'M', "manfoflorient@gmail.com", 1) };
-            //associes = new List<FirstLevel>();
-            //parrain = 0;
-            //duree = 10;
+            niveau1s = new List<FirstLevel>();
+            niveau2s = new List<SecondLevel>();
+            associes = new List<FirstLevel>();
+            parrain = 0;
+            duree = 10;
         }
 
         private void tmrRecherche_Tick(object sender, EventArgs e)
         {
-            //if(niveau1s.Count!=0)
-            //{
-            //    pbFilleul.ImageLocation = $"img{parrain}.jpg";
-            //    pbParrain.Invalidate();
+            if (niveau1s.Count != 0)
+            {
+                lblFilière.Text = niveau2s[parrain].Faculty;
+                lblParrain.Text = niveau2s[parrain].FullName;
+                if (rechercher == 0)
+                {
+                    filleul = new Random().Next(0, niveau1s.Count);
+                    tmrRecherche.Stop();
+                    niveau1s[filleul].Parrain = niveau2s[parrain];
+                    associes.Add(niveau1s[filleul]);
+                    niveau2s[parrain].Filleuls.Add(niveau1s[filleul]);
+                    duree = 10;
+                    tmrPresentation.Start();
+                }
+                else
+                {
+                    filleul = new Random().Next(0, niveau1s.Count);
+                    lblFilleul.Text = niveau1s[filleul].FullName;
+                    rechercher--;
 
-            //    lblFilière.Text = niveau2s[parrain].Filiere;
-            //    lblParrain.Text = niveau2s[parrain].Nom;
-            //    if (rechercher == 0)
-            //    {
-            //        filleul = new Random().Next(0, niveau1s.Count);
-            //        tmrRecherche.Stop();
-            //        niveau1s[filleul].Parrain = niveau2s[parrain];
-            //        associes.Add(niveau1s[filleul]);
-            //        niveau2s[parrain].Filleuls.Add(niveau1s[filleul]);
-            //        duree = 10;
-            //        tmrPresentation.Start();
-            //    }
-            //    else
-            //    {
-            //        filleul = new Random().Next(0, niveau1s.Count);
-            //        lblFilleul.Text = niveau1s[filleul].Nom;
-            //        rechercher--;
-
-            //        pbFilleul.ImageLocation = $"img{filleul}.jpg";
-            //        pbFilleul.Invalidate();
-
-            //    }
-            //}
-            //else
-            //{
-            //    foreach (var item in niveau2s)
-            //        Console.WriteLine(item.Filleuls.Count);
-            //    tmrRecherche.Stop();
-            //    Console.WriteLine(associes.Count);
-            //}
+                }
+            }
+            else
+            {
+                foreach (var item in niveau2s)
+                    Console.WriteLine(item.Filleuls.Count);
+                tmrRecherche.Stop();
+                Console.WriteLine(associes.Count);
+            }
         }
 
         private void tmrPresentation_Tick(object sender, EventArgs e)
         {
-            //duree--;
-            //if(duree != 0)
-            //{
-            //    lblParrain.Text = niveau2s[parrain].Nom;
-            //    lblFilleul.Text = niveau1s[filleul].Nom;
-            //    lblFilière.Text = niveau2s[parrain].Filiere;
-            //}
-            //else
-            //{
-            //    if (parrain != niveau2s.Count - 1 && niveau1s.Count>1)
-            //        parrain++;
-            //    else
-            //        parrain = 0;
+            duree--;
+            if (duree != 0)
+            {
+                lblParrain.Text = niveau2s[parrain].FullName;
+                lblFilleul.Text = niveau1s[filleul].FullName;
+                lblFilière.Text = niveau2s[parrain].Faculty;
+            }
+            else
+            {
+                if (parrain != niveau2s.Count - 1 && niveau1s.Count > 1)
+                    parrain++;
+                else
+                    parrain = 0;
 
-            //    rechercher = 10;
-            //    niveau1s.RemoveAt(filleul);
-            //    tmrPresentation.Stop();
-            //    tmrRecherche.Start();
-            //}
+                rechercher = 10;
+                niveau1s.RemoveAt(filleul);
+                tmrPresentation.Stop();
+                tmrRecherche.Start();
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            //tmrRecherche.Start();
+            tmrRecherche.Start();
         }
     }
 }

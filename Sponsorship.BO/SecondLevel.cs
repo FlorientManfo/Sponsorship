@@ -10,20 +10,20 @@ namespace Sponsorship.BO
     public class SecondLevel:Student
     {
         public List<FirstLevel> Filleuls { get; set; }
-        public int Niveau { get; set; }
+        public int Level { get; set; }
         public SecondLevel()
         {
-            Niveau = 2;
+            Level = 2;
             Filleuls = new List<FirstLevel>();
         }
-        public SecondLevel(string nom, string filiere, int telephone, string email) :base(nom, filiere, telephone, email)
+        public SecondLevel(string fullName, string faculty, int phone, string email) :base(fullName, faculty, phone, email)
         {
-            Niveau = 2;
+            Level = 2;
             Filleuls = new List<FirstLevel>();
         }
-        public SecondLevel(SecondLevel etudiant):base(new Student(etudiant.Nom, etudiant.Filiere, etudiant.Telephone, etudiant.Email))
+        public SecondLevel(SecondLevel etudiant):base(new Student(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email))
         {
-            Niveau = etudiant.Niveau;
+            Level = etudiant.Level;
             Filleuls = etudiant.Filleuls;
         }
     }

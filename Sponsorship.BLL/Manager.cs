@@ -13,40 +13,7 @@ namespace Sponsorship.BLL
 
     public class Manager
     {
-        
-
-        #region MySqlDataAccess
-
-        //List<Etudiant> students;
-        //List<object[]> datas;
-        //Repository repo;
-
-        //public Manager()
-        //{
-        //    repo = new Repository("localhost", "test", "root", "");
-        //    students = new List<Etudiant>();
-        //    datas = new List<object[]>();
-        //}
-
-        ////Construction des objets etudiant de niveau2 à l'aides des données issus de la BD
-        //public List<Etudiant> GetStudent()
-        //{
-        //    datas = repo.GetData("student", 0, 1);
-        //    foreach (var data in datas)
-        //    {
-        //        Etudiant student = new Etudiant();
-        //        for (int i = 0; i < data.Length; i++)
-        //        {
-        //            student = new Etudiant(data[1].ToString(), data[2].ToString(), char.Parse(data[3].ToString()), data[4].ToString());
-        //        }
-        //        students.Add(student);
-
-        //    }
-
-        //    return students;
-        //}
-        #endregion
-
+       
         #region Email
         //attributs nécessaires à la construction du mail
         NetworkCredential login;
@@ -59,12 +26,12 @@ namespace Sponsorship.BLL
                 filleuls = (etudiant as SecondLevel).Filleuls;
 
             //intialisation des informations de l'emetteur
-            login = new NetworkCredential("florientmanfo3@gmail.com", "Anhedonia07");
+            login = new NetworkCredential("mail de l'émetteur", "mot de passe");
             client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.EnableSsl = true;
             client.Credentials = login;
-            msg = new MailMessage { From = new MailAddress("florientmanfo3@gmail.com", "IUC", Encoding.UTF8) };
+            msg = new MailMessage { From = new MailAddress("mail de l'émetteur", "IUC", Encoding.UTF8) };
 
             msg.To.Add(new MailAddress(etudiant.Email));
             msg.Subject = "Parrainage";
@@ -72,12 +39,12 @@ namespace Sponsorship.BLL
             if (etudiant.GetType() == typeof(SecondLevel))
             {
                 client.SendCompleted += Client_SendCompleted;
-                msg.Body = $"Votre filleul se nomme: {etudiant.Nom} ";
+                msg.Body = $"Votre filleul se nomme: {etudiant.FullName} ";
                 //msgf.Attachments.Add(new Attachment("chemin vers la photo du filleul"));
             }
             else
             {
-                msg.Body = $"Votre parrain se nomme: {etudiant.Nom} ";
+                msg.Body = $"Votre parrain se nomme: {etudiant.FullName} ";
                 //msgf.Attachments.Add(new Attachment("chemin vers la photo du parrain"));
             }
 
@@ -105,8 +72,7 @@ namespace Sponsorship.BLL
         }
         #endregion
 
-
-        #region Manipulation des données
+        #region Data manipulation
 
         FirstRepository firstRepository;
         SecondRepository secondRepository;

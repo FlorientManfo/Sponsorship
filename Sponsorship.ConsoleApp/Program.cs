@@ -16,13 +16,14 @@ namespace Sponsorship.ConsoleApp
             var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test (2).xlsx");
 
             List<FirstLevel> ticFirstLevel = manager.GetFirstLevels();
+
+            Console.WriteLine("******************First Level********************");
             foreach (var student in ticFirstLevel)
             {
-                Console.WriteLine("**************************************");
 
-                Console.WriteLine(student.Nom);
-                Console.WriteLine(student.Filiere);
-                Console.WriteLine(student.Telephone);
+                Console.WriteLine(student.FullName);
+                Console.WriteLine(student.Faculty);
+                Console.WriteLine(student.Phone);
                 Console.WriteLine(student.Email);
 
             }
@@ -32,16 +33,12 @@ namespace Sponsorship.ConsoleApp
             List<SecondLevel> ticSecondtLevel = manager.GetSecondLevels();
             foreach (var student in ticFirstLevel)
             {
-                Console.WriteLine(student.Nom);
-                Console.WriteLine(student.Filiere);
-                Console.WriteLine(student.Telephone);
+                Console.WriteLine(student.FullName);
+                Console.WriteLine(student.Faculty);
+                Console.WriteLine(student.Phone);
                 Console.WriteLine(student.Email);
-
-                Console.WriteLine("**************************************");
             }
 
-            ticSecondtLevel[0].Filleuls = ticFirstLevel;
-            ticSecondtLevel[1].Filleuls = ticFirstLevel;
             try
             {
                 manager.Commit(ticSecondtLevel);
@@ -53,16 +50,6 @@ namespace Sponsorship.ConsoleApp
                 Console.WriteLine(ex.Message);
 
             }
-            Console.WriteLine();
-            //List < Etudiant > etudiants = man.GetStudent();
-            //foreach (var etudiant in etudiants)
-            //{
-            //    Console.WriteLine(etudiant.Nom);
-            //    Console.WriteLine(etudiant.Specialite);
-            //    Console.WriteLine(etudiant.Genre);
-            //    Console.WriteLine(etudiant.Email);
-            //    Console.WriteLine(etudiant.Parrain);
-            //}
 
             Console.ReadKey();
         }
