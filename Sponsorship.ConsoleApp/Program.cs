@@ -13,7 +13,7 @@ namespace Sponsorship.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test (2).xlsx");
+            var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test.xlsx");
 
             List<FirstLevel> ticFirstLevel = manager.GetFirstLevels();
 
@@ -38,6 +38,9 @@ namespace Sponsorship.ConsoleApp
                 Console.WriteLine(student.Phone);
                 Console.WriteLine(student.Email);
             }
+
+            ticSecondtLevel[0].Filleuls = ticFirstLevel;
+            ticSecondtLevel[1].Filleuls = ticFirstLevel;
 
             try
             {
