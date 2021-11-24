@@ -14,8 +14,8 @@ namespace Sponsorship.WinForms
 
     public partial class Form1 : Form
     {
-        List<FirstLevel> niveau1s;
-        List<SecondLevel> niveau2s;
+        List<FirstLevel> level1s;
+        List<SecondLevel> level2s;
         List<FirstLevel> associes;
         int parrain;
         int filleul;
@@ -24,8 +24,8 @@ namespace Sponsorship.WinForms
         public Form1()
         {
             InitializeComponent();
-            niveau1s = new List<FirstLevel>();
-            niveau2s = new List<SecondLevel>();
+            level1s = new List<FirstLevel>();
+            level2s = new List<SecondLevel>();
             associes = new List<FirstLevel>();
             parrain = 0;
             duree = 10;
@@ -33,31 +33,31 @@ namespace Sponsorship.WinForms
 
         private void tmrRecherche_Tick(object sender, EventArgs e)
         {
-            if (niveau1s.Count != 0)
+            if (level1s.Count != 0)
             {
-                lblFilière.Text = niveau2s[parrain].Faculty;
-                lblParrain.Text = niveau2s[parrain].FullName;
+                lblFilière.Text = level2s[parrain].Faculty;
+                lblParrain.Text = level2s[parrain].FullName;
                 if (rechercher == 0)
                 {
-                    filleul = new Random().Next(0, niveau1s.Count);
+                    filleul = new Random().Next(0, level1s.Count);
                     tmrRecherche.Stop();
-                    niveau1s[filleul].Parrain = niveau2s[parrain];
-                    associes.Add(niveau1s[filleul]);
-                    niveau2s[parrain].Filleuls.Add(niveau1s[filleul]);
+                    level1s[filleul].Parrain = level2s[parrain];
+                    associes.Add(level1s[filleul]);
+                    level2s[parrain].Filleuls.Add(level1s[filleul]);
                     duree = 10;
                     tmrPresentation.Start();
                 }
                 else
                 {
-                    filleul = new Random().Next(0, niveau1s.Count);
-                    lblFilleul.Text = niveau1s[filleul].FullName;
+                    filleul = new Random().Next(0, level1s.Count);
+                    lblFilleul.Text = level1s[filleul].FullName;
                     rechercher--;
 
                 }
             }
             else
             {
-                foreach (var item in niveau2s)
+                foreach (var item in level2s)
                     Console.WriteLine(item.Filleuls.Count);
                 tmrRecherche.Stop();
                 Console.WriteLine(associes.Count);
@@ -69,19 +69,19 @@ namespace Sponsorship.WinForms
             duree--;
             if (duree != 0)
             {
-                lblParrain.Text = niveau2s[parrain].FullName;
-                lblFilleul.Text = niveau1s[filleul].FullName;
-                lblFilière.Text = niveau2s[parrain].Faculty;
+                lblParrain.Text = level2s[parrain].FullName;
+                lblFilleul.Text = level1s[filleul].FullName;
+                lblFilière.Text = level2s[parrain].Faculty;
             }
             else
             {
-                if (parrain != niveau2s.Count - 1 && niveau1s.Count > 1)
+                if (parrain != level2s.Count - 1 && level1s.Count > 1)
                     parrain++;
                 else
                     parrain = 0;
 
                 rechercher = 10;
-                niveau1s.RemoveAt(filleul);
+                level1s.RemoveAt(filleul);
                 tmrPresentation.Stop();
                 tmrRecherche.Start();
             }
