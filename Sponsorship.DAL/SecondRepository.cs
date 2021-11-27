@@ -59,10 +59,10 @@ namespace Sponsorship.DAL
 
                 for (int j = n, k = 0; j< students[i].Filleuls.Count + n; j++, k++)
                 {
-                    nws.Cells[j+1, 5].Value = students[i].Filleuls[k].FullName;
-                    nws.Cells[j+1, 6].Value = students[i].Filleuls[k].Faculty;
+                    nws.Cells[j+1, 5].Value = students[i].Filleuls[k].FullName??null;
+                    nws.Cells[j+1, 6].Value = students[i].Filleuls[k].Faculty ?? null;
                     nws.Cells[j + 1, 7].Value = students[i].Filleuls[k].Phone;
-                    nws.Cells[j + 1, 8].Value = students[i].Filleuls[k].Email;
+                    nws.Cells[j + 1, 8].Value = students[i].Filleuls[k].Email ?? null;
 
                     nws.Cells[j + 1, 5, j + 1, 8].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     nws.Cells[j + 1, 5, j + 1, 8].Style.VerticalAlignment = ExcelVerticalAlignment.Center;

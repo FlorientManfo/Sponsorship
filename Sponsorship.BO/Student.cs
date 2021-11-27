@@ -30,5 +30,20 @@ namespace Sponsorship.BO
         public Student(Student etudiant):this(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email)
         {
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Student student &&
+                   Phone == student.Phone &&
+                   Email == student.Email;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1182145806;
+            hashCode = hashCode * -1521134295 + Phone.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
+            return hashCode;
+        }
     }
 }
