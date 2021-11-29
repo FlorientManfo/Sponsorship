@@ -79,8 +79,8 @@ namespace Sponsorship.BLL
 
         public Manager(string paht)
         {
-            firstRepository = new FirstRepository(paht, 0);
-            secondRepository = new SecondRepository(paht, 1);
+            firstRepository = new FirstRepository(paht, 1);
+            secondRepository = new SecondRepository(paht, 0);
         }
 
         public List<FirstLevel> GetFirstLevels()
@@ -105,6 +105,74 @@ namespace Sponsorship.BLL
         {
             secondRepository.Commit(students);
         }
+
+        public SecondLevel Matching(List<SecondLevel> parrains, List<FirstLevel> filleuls)
+        {
+            if(filleuls.Count != 0)
+            {
+                var f1rand = new Random().Next(0, filleuls.Count);
+                var f2rand = new Random().Next(0, filleuls.Count);
+
+                for (int i = 0; i < filleuls.Count - 1; i++)
+                {
+                    for (int j = i + 1; j < filleuls.Count; j++)
+                    {
+                        if (filleuls[i].Faculty != filleuls[j].Faculty)
+                        {
+                            while (filleuls[f1rand].Faculty == filleuls[f2rand].Faculty)
+                            {
+                                f1rand = new Random().Next(0, filleuls.Count);
+                                f2rand = new Random().Next(0, filleuls.Count);
+                            }
+                            break;
+                        }
+                    }
+                    while (f1rand == f2rand && filleuls.Count>=2)
+                    {
+                        f1rand = new Random().Next(0, filleuls.Count);
+                        f2rand = new Random().Next(0, filleuls.Count);
+                    }
+                    break;
+                }
+
+                var hasAll = true;
+                foreach (var par in parrains)
+                    if (par.Filleuls.Count == 0)
+                    {
+                        hasAll = false;
+                        break;
+                    }
+
+                var prand = new Random().Next(0, parrains.Count);
+                while (parrains[prand].Filleuls.Count != 0)
+                {
+                    if (!hasAll)
+                        prand = new Random().Next(0, parrains.Count);
+                    else
+                        break;
+                }
+
+                parrains[prand].Filleuls.Add(filleuls[f1rand]);
+                filleuls[f1rand].Parrain = parrains[prand];
+
+                if (filleuls[f1rand].Email != filleuls[f2rand].Email)
+                {
+                    parrains[prand].Filleuls.Add(filleuls[f2rand]);
+                    filleuls[f2rand].Parrain = parrains[prand];
+                }
+
+                return parrains[prand];
+            }
+            return null;
+        }
+        public void saveResult(List<FirstLevel> firsts)
+        {
+            firstRepository.Save();
+        }
+
+
         #endregion
+
+        
     }
 }
