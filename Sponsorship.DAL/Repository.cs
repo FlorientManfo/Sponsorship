@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Sponsorship.BO;
 using OfficeOpenXml;
 using System.IO;
-using LibraryGenericSerialiser;
+
 
 namespace Sponsorship.DAL
 {
@@ -14,7 +14,6 @@ namespace Sponsorship.DAL
     public class Repository <T>
     {
         private readonly string PATH;
-        private Serializer<List<T>> serializer;
         #region ExcelDataAccess
         protected List<T> data;
         protected ExcelPackage excel;
@@ -26,7 +25,7 @@ namespace Sponsorship.DAL
             FileInfo fi = new FileInfo(PATH);
             if (!fi.Directory.Exists)
                 fi.Directory.Create();
-            serializer = new Serializer<List<T>>(Mode.JSON,PATH);
+
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
             excel = new ExcelPackage(path);
             ws = excel.Workbook.Worksheets[sheet];
@@ -62,10 +61,7 @@ namespace Sponsorship.DAL
         }
 
         #endregion
-        public void Save()
-        {
-            serializer.Serialize(data);
-        }
+
 
     }
 }

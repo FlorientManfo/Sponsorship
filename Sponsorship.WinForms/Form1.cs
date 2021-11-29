@@ -138,7 +138,6 @@ namespace Sponsorship.WinForms
         {
             //MessageBox.Show( level1s.Count.ToString());
             tmrRecherche.Start();
-            MessageBox.Show(associes[0].Parrain.FullName);
 
         }
 
