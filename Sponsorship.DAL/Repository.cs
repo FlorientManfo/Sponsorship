@@ -5,12 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Sponsorship.BO;
 using OfficeOpenXml;
+using System.IO;
+using LibraryGenericSerialiser;
 
 namespace Sponsorship.DAL
 {
 
     public class Repository <T>
     {
+        private readonly string PATH;
+        private Serializer<List<T>> serializer;
         #region ExcelDataAccess
         protected List<T> data;
         protected ExcelPackage excel;
@@ -18,6 +22,11 @@ namespace Sponsorship.DAL
 
         public Repository(string path, int sheet)
         {
+            PATH = $"Data/{typeof(T).Name}.json";
+            FileInfo fi = new FileInfo(PATH);
+            if (!fi.Directory.Exists)
+                fi.Directory.Create();
+            serializer = new Serializer<List<T>>(Mode.JSON,PATH);
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
             excel = new ExcelPackage(path);
             ws = excel.Workbook.Worksheets[sheet];
@@ -34,9 +43,29 @@ namespace Sponsorship.DAL
         }
 
         //Inscription des informations dans les cellules
-
-       
         #endregion
+        #region  RANDOM
+        //assignation des identifients aléatoire et sans doublons
+        public static List<int> UnicRandom(List<int> id, Random random)
+        {
+            while (id.Count < 20)
+            {
+                var a = random.Next(0, 20);
+                if (id.Contains(a) == false)
+                {
+                    id.Add(a);
+                }
+
+            }
+            return id;
+            
+        }
+
+        #endregion
+        public void Save()
+        {
+            serializer.Serialize(data);
+        }
 
     }
 }

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Inetlab.SMPP, Version=2.9.8.2370, Culture=neutral, PublicKeyToken=f4ef11ed003c8441, processorArchitecture=MSIL">
+      <HintPath>..\packages\Inetlab.SMPP.2.9.8\lib\net461\Inetlab.SMPP.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,9 @@
     <Compile Include="FirstLevel.cs" />
     <Compile Include="SecondLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

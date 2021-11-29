@@ -14,16 +14,20 @@ namespace Sponsorship.DAL
         #region ExcelDataAccess
         public SecondRepository(string path, int sheet) : base(path, sheet)
         {
+
         }
 
         //Récuperation des étudiants.
         public List<SecondLevel> GetALL()
         {
+            List<int> id = new List<int>();
+            Random random = new Random();
+
             int i = 0;
             string item = ReadCell(i, 0);
             while (!string.IsNullOrEmpty(item))
             {
-                var nS = new SecondLevel(ReadCell(i, 0), ReadCell(i, 1), int.Parse(ReadCell(i, 2)), ReadCell(i, 3));
+                var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), int.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
                 data.Add(nS);
                 i++;
                 item = ReadCell(i, 0);

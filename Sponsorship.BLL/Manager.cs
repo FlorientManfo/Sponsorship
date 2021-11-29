@@ -79,8 +79,8 @@ namespace Sponsorship.BLL
 
         public Manager(string paht)
         {
-            firstRepository = new FirstRepository(paht, 0);
-            secondRepository = new SecondRepository(paht, 1);
+            firstRepository = new FirstRepository(paht, 1);
+            secondRepository = new SecondRepository(paht, 0);
         }
 
         public List<FirstLevel> GetFirstLevels()
@@ -165,8 +165,14 @@ namespace Sponsorship.BLL
             }
             return null;
         }
+        public void saveResult(List<FirstLevel> firsts)
+        {
+            firstRepository.Save();
+        }
 
 
         #endregion
+
+        
     }
 }
