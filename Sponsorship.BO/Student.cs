@@ -12,7 +12,7 @@ namespace Sponsorship.BO
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Faculty { get; set; }
-        public int Phone { get; set; }
+        public long Phone { get; set; }
         public string Email { get; set; }
         public string Picture { get; set; }
 
@@ -21,7 +21,7 @@ namespace Sponsorship.BO
 
         }
 
-        public Student(string fullName, string faculty, int phone, string email,string picture)
+        public Student(string fullName, string faculty, long phone, string email,string picture)
         {
             FullName = fullName;
             Faculty = faculty;
@@ -37,16 +37,12 @@ namespace Sponsorship.BO
         public override bool Equals(object obj)
         {
             return obj is Student student &&
-                   Phone == student.Phone &&
                    Email == student.Email;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1182145806;
-            hashCode = hashCode * -1521134295 + Phone.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
-            return hashCode;
+            return -506688385 + EqualityComparer<string>.Default.GetHashCode(Email);
         }
     }
 }

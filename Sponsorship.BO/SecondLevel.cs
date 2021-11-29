@@ -16,7 +16,7 @@ namespace Sponsorship.BO
             Level = 2;
             Filleuls = new List<FirstLevel>();
         }
-        public SecondLevel(int id,string fullName, string faculty, int phone, string email,string picture) :base(fullName, faculty, phone, email,picture)
+        public SecondLevel(int id,string fullName, string faculty, long phone, string email,string picture) :base(fullName, faculty, phone, email,picture)
         {
             Level = 2;
             Filleuls = new List<FirstLevel>();

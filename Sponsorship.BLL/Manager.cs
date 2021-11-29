@@ -24,28 +24,37 @@ namespace Sponsorship.BLL
         {
             if (etudiant.GetType() == typeof(SecondLevel))
                 filleuls = (etudiant as SecondLevel).Filleuls;
+            else
+                filleuls = null;
 
             //intialisation des informations de l'emetteur
-            login = new NetworkCredential("mail de l'émetteur", "mot de passe");
+            login = new NetworkCredential("adresse de l'émetteur", "mot de passe");
             client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.EnableSsl = true;
             client.Credentials = login;
-            msg = new MailMessage { From = new MailAddress("mail de l'émetteur", "IUC", Encoding.UTF8) };
+            msg = new MailMessage { From = new MailAddress("adresse de l'émetteur", "IUC", Encoding.UTF8) };
 
             msg.To.Add(new MailAddress(etudiant.Email));
             msg.Subject = "Parrainage";
 
             if (etudiant.GetType() == typeof(SecondLevel))
             {
+                var sLS = etudiant as SecondLevel;
                 client.SendCompleted += Client_SendCompleted;
-                msg.Body = $"Votre filleul se nomme: {etudiant.FullName} ";
-                //msgf.Attachments.Add(new Attachment("chemin vers la photo du filleul"));
+                msg.Body = $"Vos filleuls se nomment:";
+
+                for(int i = 0; i< sLS.Filleuls.Count; i++)
+                {
+                    msg.Body += $"\n{sLS.Filleuls[i].FullName} \n \tFilière: {sLS.Filleuls[i].Faculty} \n \tContact: {sLS.Filleuls[i].Phone}";
+                    msg.Attachments.Add(new Attachment(sLS.Filleuls[i].Picture));
+                }
             }
             else
             {
-                msg.Body = $"Votre parrain se nomme: {etudiant.FullName} ";
-                //msgf.Attachments.Add(new Attachment("chemin vers la photo du parrain"));
+                msg.Body = $"Votre parrain se nomme: {etudiant.FullName}\nFilière: {etudiant.Faculty}\n \tContact: {etudiant.Phone}";
+                msg.Attachments.Add(new Attachment(etudiant.Picture));
+                Console.WriteLine("Filleul allerté !");
             }
 
             msg.BodyEncoding = Encoding.UTF8;
@@ -76,11 +85,14 @@ namespace Sponsorship.BLL
 
         FirstRepository firstRepository;
         SecondRepository secondRepository;
+        List<SecondLevel> notSent;
+
 
         public Manager(string paht)
         {
-            firstRepository = new FirstRepository(paht, 1);
-            secondRepository = new SecondRepository(paht, 0);
+            firstRepository = new FirstRepository(paht, 0);
+            secondRepository = new SecondRepository(paht, 1);
+            notSent = new List<SecondLevel>();
         }
 
         public List<FirstLevel> GetFirstLevels()
@@ -93,12 +105,17 @@ namespace Sponsorship.BLL
             return secondRepository.GetALL();
         }
 
-        public void Notify(FirstLevel flStudent, SecondLevel sLStudent)
+        public void Notify(SecondLevel student)
         {
-            sLStudent.Filleuls.Add(flStudent);
-            flStudent.Parrain = sLStudent;
-
-            SendMail(sLStudent);
+            try
+            {
+                SendMail(student);
+                Console.WriteLine("mail send !");
+            }
+            catch
+            {
+                notSent.Add(student);
+            }
         }
 
         public void Commit(List<SecondLevel> students)
@@ -106,7 +123,7 @@ namespace Sponsorship.BLL
             secondRepository.Commit(students);
         }
 
-        public SecondLevel Matching(List<SecondLevel> parrains, List<FirstLevel> filleuls)
+        public (SecondLevel, List<FirstLevel>) Matching(List<SecondLevel> parrains, List<FirstLevel> filleuls)
         {
             if(filleuls.Count != 0)
             {
@@ -144,30 +161,22 @@ namespace Sponsorship.BLL
                     }
 
                 var prand = new Random().Next(0, parrains.Count);
-                while (parrains[prand].Filleuls.Count != 0)
+                while (parrains[prand]?.Filleuls?.Count != 0)
                 {
                     if (!hasAll)
                         prand = new Random().Next(0, parrains.Count);
                     else
                         break;
                 }
+                List<FirstLevel> f = new List<FirstLevel>();
+                f.Add(filleuls[f1rand]);
 
-                parrains[prand].Filleuls.Add(filleuls[f1rand]);
-                filleuls[f1rand].Parrain = parrains[prand];
+                if (filleuls[f1rand] != filleuls[f2rand])
+                    f.Add(filleuls[f2rand]);
 
-                if (filleuls[f1rand].Email != filleuls[f2rand].Email)
-                {
-                    parrains[prand].Filleuls.Add(filleuls[f2rand]);
-                    filleuls[f2rand].Parrain = parrains[prand];
-                }
-
-                return parrains[prand];
+                return (parrains[prand], f);
             }
-            return null;
-        }
-        public void saveResult(List<FirstLevel> firsts)
-        {
-           // firstRepository.Save();
+            return (null, null);
         }
 
 

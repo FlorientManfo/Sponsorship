@@ -13,7 +13,7 @@ namespace Sponsorship.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test.xlsx");
+            //var manager = new Manager("test.xlsx");
 
             //List<FirstLevel> firstLevel = manager.GetFirstLevels();
 
@@ -43,15 +43,17 @@ namespace Sponsorship.ConsoleApp
             //try
             //{
             //    SecondLevel parrain = null;
-            //    while(firstLevel.Count!=0)
+            //    while (firstLevel.Count != 0)
             //    {
             //        parrain = manager.Matching(secondtLevel, firstLevel);
 
             //        if (parrain != null)
+            //        {
             //            foreach (var f in parrain.Filleuls)
             //                firstLevel.Remove(f);
+            //            //manager.Notify(parrain);
+            //        }
             //    }
-
             //    List<SecondLevel> associed = new List<SecondLevel>();
             //    foreach (var st in secondtLevel)
             //        if (st.Filleuls.Count != 0)
