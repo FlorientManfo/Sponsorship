@@ -14,16 +14,20 @@ namespace Sponsorship.DAL
         #region ExcelDataAccess
         public SecondRepository(string path, int sheet) : base(path, sheet)
         {
+
         }
 
         //Récuperation des étudiants.
         public List<SecondLevel> GetALL()
         {
+            List<int> id = new List<int>();
+            Random random = new Random();
+
             int i = 0;
             string item = ReadCell(i, 0);
             while (!string.IsNullOrEmpty(item))
             {
-                var nS = new SecondLevel(ReadCell(i, 0), ReadCell(i, 1), int.Parse(ReadCell(i, 2)), ReadCell(i, 3));
+                var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), int.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
                 data.Add(nS);
                 i++;
                 item = ReadCell(i, 0);
@@ -59,10 +63,10 @@ namespace Sponsorship.DAL
 
                 for (int j = n, k = 0; j< students[i].Filleuls.Count + n; j++, k++)
                 {
-                    nws.Cells[j+1, 5].Value = students[i].Filleuls[k].FullName;
-                    nws.Cells[j+1, 6].Value = students[i].Filleuls[k].Faculty;
+                    nws.Cells[j+1, 5].Value = students[i].Filleuls[k].FullName??null;
+                    nws.Cells[j+1, 6].Value = students[i].Filleuls[k].Faculty ?? null;
                     nws.Cells[j + 1, 7].Value = students[i].Filleuls[k].Phone;
-                    nws.Cells[j + 1, 8].Value = students[i].Filleuls[k].Email;
+                    nws.Cells[j + 1, 8].Value = students[i].Filleuls[k].Email ?? null;
 
                     nws.Cells[j + 1, 5, j + 1, 8].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     nws.Cells[j + 1, 5, j + 1, 8].Style.VerticalAlignment = ExcelVerticalAlignment.Center;

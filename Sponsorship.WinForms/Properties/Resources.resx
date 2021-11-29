@@ -121,4 +121,7 @@
   <data name="Fichier 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fichier 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="unknow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unknow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

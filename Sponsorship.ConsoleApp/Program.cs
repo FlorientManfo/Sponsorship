@@ -15,46 +15,58 @@ namespace Sponsorship.ConsoleApp
         {
             var manager = new Manager("E:\\cours\\PAM2\\ProgrammationMulticouches\\Sponsorship\\Sponsorship.ConsoleApp\\bin\\Debug\\test.xlsx");
 
-            List<FirstLevel> ticFirstLevel = manager.GetFirstLevels();
+            //List<FirstLevel> firstLevel = manager.GetFirstLevels();
 
-            Console.WriteLine("******************First Level********************");
-            foreach (var student in ticFirstLevel)
-            {
+            //Console.WriteLine("******************First Level********************");
+            //foreach (var student in firstLevel)
+            //{
 
-                Console.WriteLine(student.FullName);
-                Console.WriteLine(student.Faculty);
-                Console.WriteLine(student.Phone);
-                Console.WriteLine(student.Email);
+            //    Console.WriteLine(student.FullName);
+            //    Console.WriteLine(student.Faculty);
+            //    Console.WriteLine(student.Phone);
+            //    Console.WriteLine(student.Email);
 
-            }
+            //}
 
-            Console.WriteLine("\n****************Second Level********************");
+            //Console.WriteLine("\n****************Second Level********************");
 
-            List<SecondLevel> ticSecondtLevel = manager.GetSecondLevels();
-            foreach (var student in ticFirstLevel)
-            {
-                Console.WriteLine(student.FullName);
-                Console.WriteLine(student.Faculty);
-                Console.WriteLine(student.Phone);
-                Console.WriteLine(student.Email);
-            }
+            //List<SecondLevel> secondtLevel = manager.GetSecondLevels();
+            //foreach (var student in firstLevel)
+            //{
+            //    Console.WriteLine(student.FullName);
+            //    Console.WriteLine(student.Faculty);
+            //    Console.WriteLine(student.Phone);
+            //    Console.WriteLine(student.Email);
+            //}
 
-            ticSecondtLevel[0].Filleuls = ticFirstLevel;
-            ticSecondtLevel[1].Filleuls = ticFirstLevel;
 
-            try
-            {
-                manager.Commit(ticSecondtLevel);
-                Console.WriteLine("Commited success fully !");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occured !");
-                Console.WriteLine(ex.Message);
+            //try
+            //{
+            //    SecondLevel parrain = null;
+            //    while(firstLevel.Count!=0)
+            //    {
+            //        parrain = manager.Matching(secondtLevel, firstLevel);
 
-            }
+            //        if (parrain != null)
+            //            foreach (var f in parrain.Filleuls)
+            //                firstLevel.Remove(f);
+            //    }
 
-            Console.ReadKey();
+            //    List<SecondLevel> associed = new List<SecondLevel>();
+            //    foreach (var st in secondtLevel)
+            //        if (st.Filleuls.Count != 0)
+            //            associed.Add(st);
+
+            //    manager.Commit(associed);
+            //    Console.WriteLine("Commited success fully !");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("An error occured !");
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            //Console.ReadKey();
         }
     }
 }

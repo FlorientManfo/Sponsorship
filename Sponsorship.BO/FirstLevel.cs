@@ -16,12 +16,12 @@ namespace Sponsorship.BO
             Level = 1;
             Parrain = null;
         }
-        public FirstLevel(string fullName, string faculty, int phone, string email) : base(fullName, faculty, phone, email)
+        public FirstLevel(string fullName, string faculty, int phone, string email,string picture) : base(fullName, faculty, phone, email,picture)
         {
             Level = 1;
             Parrain = null;
         }
-        public FirstLevel(FirstLevel etudiant) : base(new Student(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email))
+        public FirstLevel(FirstLevel etudiant) : base(new Student(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email,etudiant.Picture))
         {
             Level = etudiant.Level;
             Parrain = etudiant.Parrain ;
