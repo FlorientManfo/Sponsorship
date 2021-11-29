@@ -167,7 +167,7 @@ namespace Sponsorship.BLL
         }
         public void saveResult(List<FirstLevel> firsts)
         {
-            firstRepository.Save();
+           // firstRepository.Save();
         }
 
 
