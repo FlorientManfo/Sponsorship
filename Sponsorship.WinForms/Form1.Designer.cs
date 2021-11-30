@@ -186,12 +186,12 @@ namespace Sponsorship.WinForms
             // 
             this.lblParrain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblParrain.AutoSize = true;
-            this.lblParrain.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParrain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParrain.ForeColor = System.Drawing.Color.White;
             this.lblParrain.Location = new System.Drawing.Point(4, 0);
             this.lblParrain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblParrain.Name = "lblParrain";
-            this.lblParrain.Size = new System.Drawing.Size(43, 46);
+            this.lblParrain.Size = new System.Drawing.Size(33, 36);
             this.lblParrain.TabIndex = 4;
             this.lblParrain.Text = "?";
             // 
@@ -308,9 +308,9 @@ namespace Sponsorship.WinForms
             this.flowLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.flowLayoutPanel5.Controls.Add(this.lblFiliereP);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(494, 39);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(494, 42);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(363, 63);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(363, 54);
             this.flowLayoutPanel5.TabIndex = 9;
             // 
             // flowLayoutPanel6

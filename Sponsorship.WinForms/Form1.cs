@@ -60,11 +60,11 @@ namespace Sponsorship.WinForms
             #endregion
 
             InitializeComponent();
-            manager = new Manager(Path.Combine(Application.StartupPath, "test.xlsx"));
+            manager = new Manager(Path.Combine(Application.StartupPath, Program.ListPath));
             secondLevels = new List<SecondLevel>();
             firstLevels = new List<FirstLevel>();
             associates = new List<SecondLevel>();
-            sound = new SoundPlayer("effet_tirage.wav");
+            sound = new SoundPlayer(@"resource\effet_tirage.wav");
         }
         private void tmrRecherche_Tick(object sender, EventArgs e)
         {
@@ -92,6 +92,7 @@ namespace Sponsorship.WinForms
 
                         lblFiliereFilleul1.Text = filleuls[0].Faculty;
                         lblFiliereFilleul2.Text = filleuls[1].Faculty;
+                        
                     }
                     else
                     {
