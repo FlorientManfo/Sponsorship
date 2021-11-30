@@ -24,7 +24,7 @@ namespace Sponsorship.WinForms
         int parrain;
         int filleul;
         int filleul2;
-        int duree = 100;
+        int duree = 10;
         int rechercher = 30;
         Manager manager;
         Manager manager2;
@@ -35,15 +35,15 @@ namespace Sponsorship.WinForms
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         public Form1()
         {
-            manager = new Manager("test.xlsx");
-            manager2 = new Manager("test.xlsx");
+            manager = new Manager(Program.ListPath);
+            manager2 = new Manager(Program.ListPath);
             InitializeComponent();
             level1secon = new List<FirstLevel>();
             level1s = new List<FirstLevel>();
             level2s = new List<SecondLevel>();
             associes = new List<FirstLevel>();
             parrain = 0;
-            duree = 100;
+            duree = 5;
             //recupération de tous les etudiants de PREPA 1 pour les mettres dans une liste
 
             var contains  = manager.GetFirstLevels();
@@ -82,7 +82,7 @@ namespace Sponsorship.WinForms
                     level1secon[filleul2].Parrain = level2s[parrain];
                     associes.Add(level1s[filleul]);
                     level2s[parrain].Filleuls.Add(level1s[filleul]);
-                    duree = 5;
+                    duree = 30;
 
                     tmrPresentation.Start();
                 }
@@ -126,7 +126,7 @@ namespace Sponsorship.WinForms
                 else
                     parrain = 0;
 
-                rechercher = 10;
+                rechercher = 50;
                 level1s.RemoveAt(filleul);
                 tmrPresentation.Stop();
                 tmrRecherche.Start();
@@ -144,6 +144,7 @@ namespace Sponsorship.WinForms
         private void lblFilleul_TextChanged(object sender, EventArgs e)
         {
             pbFilliole1.ImageLocation = level1s[filleul].Picture;
+            playsimplesound("soundparain.wav");
         }
         public void playsimplesound(string path)
         {
@@ -153,17 +154,29 @@ namespace Sponsorship.WinForms
 
         private void lblParrain_TextChanged(object sender, EventArgs e)
         {
-            playsimplesound("sound.wav");
+            
         }
 
         private void lbFillole2_TextChanged(object sender, EventArgs e)
         {
             pbFilliole2.ImageLocation = level1secon[filleul].Picture;
+            //playsimplesound("sound.wav");
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Application.Exit();
             manager.saveResult(associes);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     //add sound in winform
