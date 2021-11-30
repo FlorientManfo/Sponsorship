@@ -37,40 +37,40 @@ namespace Sponsorship.WinForms
             this.btnClose = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblFilleul = new System.Windows.Forms.Label();
-            this.lbFillole2 = new System.Windows.Forms.Label();
-            this.pbFilliole2 = new System.Windows.Forms.PictureBox();
-            this.pbFilliole1 = new System.Windows.Forms.PictureBox();
+            this.lblFilleul1 = new System.Windows.Forms.Label();
+            this.lblFilleul2 = new System.Windows.Forms.Label();
+            this.pbFilleul2 = new System.Windows.Forms.PictureBox();
+            this.pbFilleul1 = new System.Windows.Forms.PictureBox();
             this.lblParrain = new System.Windows.Forms.Label();
-            this.lblFilière = new System.Windows.Forms.Label();
+            this.lblFiliereP = new System.Windows.Forms.Label();
             this.pbParrain = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblFiliereFilleul2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblFiliereFilleul1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFilliole2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFilliole1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilleul2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilleul1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParrain)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmrPresentation
@@ -100,7 +100,6 @@ namespace Sponsorship.WinForms
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnStart
             // 
@@ -131,59 +130,57 @@ namespace Sponsorship.WinForms
             this.label2.TabIndex = 3;
             this.label2.Text = "Fillius";
             // 
-            // lblFilleul
+            // lblFilleul1
             // 
-            this.lblFilleul.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFilleul.AutoSize = true;
-            this.lblFilleul.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilleul.ForeColor = System.Drawing.Color.White;
-            this.lblFilleul.Location = new System.Drawing.Point(4, 0);
-            this.lblFilleul.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFilleul.Name = "lblFilleul";
-            this.lblFilleul.Size = new System.Drawing.Size(30, 31);
-            this.lblFilleul.TabIndex = 5;
-            this.lblFilleul.Text = "?";
-            this.lblFilleul.TextChanged += new System.EventHandler(this.lblFilleul_TextChanged);
+            this.lblFilleul1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFilleul1.AutoSize = true;
+            this.lblFilleul1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilleul1.ForeColor = System.Drawing.Color.White;
+            this.lblFilleul1.Location = new System.Drawing.Point(4, 0);
+            this.lblFilleul1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFilleul1.Name = "lblFilleul1";
+            this.lblFilleul1.Size = new System.Drawing.Size(30, 31);
+            this.lblFilleul1.TabIndex = 5;
+            this.lblFilleul1.Text = "?";
             // 
-            // lbFillole2
+            // lblFilleul2
             // 
-            this.lbFillole2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbFillole2.AutoSize = true;
-            this.lbFillole2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFillole2.ForeColor = System.Drawing.Color.White;
-            this.lbFillole2.Location = new System.Drawing.Point(4, 0);
-            this.lbFillole2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbFillole2.Name = "lbFillole2";
-            this.lbFillole2.Size = new System.Drawing.Size(30, 31);
-            this.lbFillole2.TabIndex = 5;
-            this.lbFillole2.Text = "?";
-            this.lbFillole2.TextChanged += new System.EventHandler(this.lbFillole2_TextChanged);
+            this.lblFilleul2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFilleul2.AutoSize = true;
+            this.lblFilleul2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilleul2.ForeColor = System.Drawing.Color.White;
+            this.lblFilleul2.Location = new System.Drawing.Point(4, 0);
+            this.lblFilleul2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFilleul2.Name = "lblFilleul2";
+            this.lblFilleul2.Size = new System.Drawing.Size(30, 31);
+            this.lblFilleul2.TabIndex = 5;
+            this.lblFilleul2.Text = "?";
             // 
-            // pbFilliole2
+            // pbFilleul2
             // 
-            this.pbFilliole2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbFilliole2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFilliole2.Image = ((System.Drawing.Image)(resources.GetObject("pbFilliole2.Image")));
-            this.pbFilliole2.Location = new System.Drawing.Point(816, 481);
-            this.pbFilliole2.Margin = new System.Windows.Forms.Padding(4);
-            this.pbFilliole2.Name = "pbFilliole2";
-            this.pbFilliole2.Size = new System.Drawing.Size(378, 328);
-            this.pbFilliole2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFilliole2.TabIndex = 0;
-            this.pbFilliole2.TabStop = false;
+            this.pbFilleul2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbFilleul2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFilleul2.Image = ((System.Drawing.Image)(resources.GetObject("pbFilleul2.Image")));
+            this.pbFilleul2.Location = new System.Drawing.Point(816, 481);
+            this.pbFilleul2.Margin = new System.Windows.Forms.Padding(4);
+            this.pbFilleul2.Name = "pbFilleul2";
+            this.pbFilleul2.Size = new System.Drawing.Size(378, 328);
+            this.pbFilleul2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFilleul2.TabIndex = 0;
+            this.pbFilleul2.TabStop = false;
             // 
-            // pbFilliole1
+            // pbFilleul1
             // 
-            this.pbFilliole1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbFilliole1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFilliole1.Image = ((System.Drawing.Image)(resources.GetObject("pbFilliole1.Image")));
-            this.pbFilliole1.Location = new System.Drawing.Point(118, 481);
-            this.pbFilliole1.Margin = new System.Windows.Forms.Padding(4);
-            this.pbFilliole1.Name = "pbFilliole1";
-            this.pbFilliole1.Size = new System.Drawing.Size(379, 328);
-            this.pbFilliole1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFilliole1.TabIndex = 0;
-            this.pbFilliole1.TabStop = false;
+            this.pbFilleul1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbFilleul1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFilleul1.Image = ((System.Drawing.Image)(resources.GetObject("pbFilleul1.Image")));
+            this.pbFilleul1.Location = new System.Drawing.Point(118, 481);
+            this.pbFilleul1.Margin = new System.Windows.Forms.Padding(4);
+            this.pbFilleul1.Name = "pbFilleul1";
+            this.pbFilleul1.Size = new System.Drawing.Size(379, 328);
+            this.pbFilleul1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFilleul1.TabIndex = 0;
+            this.pbFilleul1.TabStop = false;
             // 
             // lblParrain
             // 
@@ -197,20 +194,19 @@ namespace Sponsorship.WinForms
             this.lblParrain.Size = new System.Drawing.Size(43, 46);
             this.lblParrain.TabIndex = 4;
             this.lblParrain.Text = "?";
-            this.lblParrain.TextChanged += new System.EventHandler(this.lblParrain_TextChanged);
             // 
-            // lblFilière
+            // lblFiliereP
             // 
-            this.lblFilière.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFilière.AutoSize = true;
-            this.lblFilière.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilière.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.lblFilière.Location = new System.Drawing.Point(4, 0);
-            this.lblFilière.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFilière.Name = "lblFilière";
-            this.lblFilière.Size = new System.Drawing.Size(30, 31);
-            this.lblFilière.TabIndex = 3;
-            this.lblFilière.Text = "?";
+            this.lblFiliereP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiliereP.AutoSize = true;
+            this.lblFiliereP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiliereP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.lblFiliereP.Location = new System.Drawing.Point(4, 0);
+            this.lblFiliereP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiliereP.Name = "lblFiliereP";
+            this.lblFiliereP.Size = new System.Drawing.Size(30, 31);
+            this.lblFiliereP.TabIndex = 3;
+            this.lblFiliereP.Text = "?";
             // 
             // pbParrain
             // 
@@ -275,8 +271,8 @@ namespace Sponsorship.WinForms
             this.panel3.Controls.Add(this.flowLayoutPanel3);
             this.panel3.Controls.Add(this.flowLayoutPanel2);
             this.panel3.Controls.Add(this.pbParrain);
-            this.panel3.Controls.Add(this.pbFilliole2);
-            this.panel3.Controls.Add(this.pbFilliole1);
+            this.panel3.Controls.Add(this.pbFilleul2);
+            this.panel3.Controls.Add(this.pbFilleul1);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.btnStart);
             this.panel3.Location = new System.Drawing.Point(0, 137);
@@ -284,31 +280,81 @@ namespace Sponsorship.WinForms
             this.panel3.Size = new System.Drawing.Size(1305, 889);
             this.panel3.TabIndex = 14;
             // 
-            // label3
+            // flowLayoutPanel7
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(4, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "PREPA";
+            this.flowLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.flowLayoutPanel7.Controls.Add(this.lblFiliereFilleul2);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(816, 420);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(378, 63);
+            this.flowLayoutPanel7.TabIndex = 11;
             // 
-            // label1
+            // lblFiliereFilleul2
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "TIC";
+            this.lblFiliereFilleul2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiliereFilleul2.AutoSize = true;
+            this.lblFiliereFilleul2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiliereFilleul2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.lblFiliereFilleul2.Location = new System.Drawing.Point(4, 0);
+            this.lblFiliereFilleul2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiliereFilleul2.Name = "lblFiliereFilleul2";
+            this.lblFiliereFilleul2.Size = new System.Drawing.Size(83, 25);
+            this.lblFiliereFilleul2.TabIndex = 3;
+            this.lblFiliereFilleul2.Text = "PREPA";
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.flowLayoutPanel5.Controls.Add(this.lblFiliereP);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(494, 39);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(363, 63);
+            this.flowLayoutPanel5.TabIndex = 9;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.flowLayoutPanel6.Controls.Add(this.lblFiliereFilleul1);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(118, 420);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(379, 63);
+            this.flowLayoutPanel6.TabIndex = 10;
+            // 
+            // lblFiliereFilleul1
+            // 
+            this.lblFiliereFilleul1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFiliereFilleul1.AutoSize = true;
+            this.lblFiliereFilleul1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiliereFilleul1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.lblFiliereFilleul1.Location = new System.Drawing.Point(4, 0);
+            this.lblFiliereFilleul1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFiliereFilleul1.Name = "lblFiliereFilleul1";
+            this.lblFiliereFilleul1.Size = new System.Drawing.Size(48, 25);
+            this.lblFiliereFilleul1.TabIndex = 3;
+            this.lblFiliereFilleul1.Text = "TIC";
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.flowLayoutPanel4.Controls.Add(this.lblFilleul2);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(816, 804);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(378, 63);
+            this.flowLayoutPanel4.TabIndex = 8;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.flowLayoutPanel3.Controls.Add(this.lblFilleul1);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(118, 804);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(379, 63);
+            this.flowLayoutPanel3.TabIndex = 7;
             // 
             // flowLayoutPanel2
             // 
@@ -319,56 +365,6 @@ namespace Sponsorship.WinForms
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(363, 63);
             this.flowLayoutPanel2.TabIndex = 6;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.flowLayoutPanel3.Controls.Add(this.lblFilleul);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(118, 804);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(379, 63);
-            this.flowLayoutPanel3.TabIndex = 7;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.flowLayoutPanel4.Controls.Add(this.lbFillole2);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(816, 804);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(378, 63);
-            this.flowLayoutPanel4.TabIndex = 8;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.flowLayoutPanel5.Controls.Add(this.lblFilière);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(494, 39);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(363, 63);
-            this.flowLayoutPanel5.TabIndex = 9;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.flowLayoutPanel6.Controls.Add(this.label1);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(118, 420);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(379, 63);
-            this.flowLayoutPanel6.TabIndex = 10;
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.flowLayoutPanel7.Controls.Add(this.label3);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(816, 420);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(378, 63);
-            this.flowLayoutPanel7.TabIndex = 11;
             // 
             // Form1
             // 
@@ -384,29 +380,28 @@ namespace Sponsorship.WinForms
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbFilliole2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFilliole1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilleul2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilleul1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbParrain)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -417,21 +412,21 @@ namespace Sponsorship.WinForms
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.PictureBox pbFilliole1;
-        private System.Windows.Forms.PictureBox pbFilliole2;
-        private System.Windows.Forms.Label lbFillole2;
-        private System.Windows.Forms.Label lblFilleul;
+        private System.Windows.Forms.PictureBox pbFilleul1;
+        private System.Windows.Forms.PictureBox pbFilleul2;
+        private System.Windows.Forms.Label lblFilleul2;
+        private System.Windows.Forms.Label lblFilleul1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbParrain;
-        private System.Windows.Forms.Label lblFilière;
+        private System.Windows.Forms.Label lblFiliereP;
         private System.Windows.Forms.Label lblParrain;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFiliereFilleul2;
+        private System.Windows.Forms.Label lblFiliereFilleul1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
