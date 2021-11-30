@@ -16,7 +16,7 @@ namespace Sponsorship.BO
             Level = 1;
             Parrain = null;
         }
-        public FirstLevel(string fullName, string faculty, int phone, string email,string picture) : base(fullName, faculty, phone, email,picture)
+        public FirstLevel(string fullName, string faculty, long phone, string email,string picture) : base(fullName, faculty, phone, email,picture)
         {
             Level = 1;
             Parrain = null;

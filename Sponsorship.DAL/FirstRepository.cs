@@ -25,7 +25,7 @@ namespace Sponsorship.DAL
             string item = ReadCell(i, 0);
             while (!string.IsNullOrEmpty(item))
             {
-                var nS = new FirstLevel(ReadCell(i, 0), ReadCell(i, 1), int.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0) + ".png");
+                var nS = new FirstLevel(ReadCell(i, 0), ReadCell(i, 1), long.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0) + ".png");
                 data.Add(nS);
                 i++;
                 item = ReadCell(i, 0);

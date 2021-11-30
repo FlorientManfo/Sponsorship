@@ -27,7 +27,7 @@ namespace Sponsorship.DAL
             string item = ReadCell(i, 0);
             while (!string.IsNullOrEmpty(item))
             {
-                var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), int.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
+                var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), long.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
                 data.Add(nS);
                 i++;
                 item = ReadCell(i, 0);
@@ -49,7 +49,7 @@ namespace Sponsorship.DAL
                 range.Merge = true;
                 range.Value = students[i].Faculty;
 
-                range = nws.Cells[n + 1, 3, n + students[i].Filleuls.Count, 3];
+                range = nws.Cells[n + 1, 3, n  + students[i].Filleuls.Count, 3];
                 range.Merge = true;
                 range.Value = students[i].Phone;
 
@@ -58,7 +58,7 @@ namespace Sponsorship.DAL
                 range.Value = students[i].Email;
 
                 nws.Cells[n + 1, 1, n + students[i].Filleuls.Count, 4].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                nws.Cells[n + 1, 1, n + students[i].Filleuls.Count, 4].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                nws.Cells[n + 1, 1, n  + students[i].Filleuls.Count, 4].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 nws.Cells[n + 1, 1, n + students[i].Filleuls.Count, 4].Style.Border.BorderAround(ExcelBorderStyle.Medium);
 
                 for (int j = n, k = 0; j< students[i].Filleuls.Count + n; j++, k++)
@@ -72,7 +72,7 @@ namespace Sponsorship.DAL
                     nws.Cells[j + 1, 5, j + 1, 8].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                     nws.Cells[j + 1, 5, j + 1, 8].Style.Border.BorderAround(ExcelBorderStyle.Medium);
                 }
-                n = students[i].Filleuls.Count;
+                n += students[i].Filleuls.Count;
             }
             excel.Save();
         }
