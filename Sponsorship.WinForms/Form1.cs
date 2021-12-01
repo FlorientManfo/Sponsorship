@@ -31,7 +31,7 @@ namespace Sponsorship.WinForms
             secondLevels = new List<SecondLevel>();
             firstLevels = new List<FirstLevel>();
             associates = new List<SecondLevel>();
-            sound = new SoundPlayer(@"resource\effet_tirage.wav");
+            sound = new SoundPlayer(@"..\..\Resources\effet_tirage.wav");
         }
         private void tmrRecherche_Tick(object sender, EventArgs e)
         {
@@ -93,6 +93,7 @@ namespace Sponsorship.WinForms
                 //}
                 #endregion
 
+                
                 SecondLevel parrain = null;
                 FirstLevel filleul = null;
                 (parrain, filleul) = manager.Matching(secondLevels, firstLevels);
@@ -154,8 +155,8 @@ namespace Sponsorship.WinForms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            tmrRecherche.Start();
             sound.Play();
+            tmrRecherche.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -163,6 +164,11 @@ namespace Sponsorship.WinForms
             firstLevels = manager.GetFirstLevels();
             secondLevels = manager.GetSecondLevels();
             find = 0;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

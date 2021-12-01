@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Sponsorship.DAL
@@ -27,7 +28,7 @@ namespace Sponsorship.DAL
             string item = ReadCell(i, 0);
             while (!string.IsNullOrEmpty(item))
             {
-                var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), long.Parse(ReadCell(i, 2)), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
+                var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), long.Parse(Regex.Replace(ReadCell(i, 2), @"\s", "")), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
                 data.Add(nS);
                 i++;
                 item = ReadCell(i, 0);

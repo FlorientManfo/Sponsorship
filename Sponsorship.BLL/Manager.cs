@@ -28,7 +28,7 @@ namespace Sponsorship.BLL
                 filleuls = null;
 
             //intialisation des informations de l'emetteur
-            login = new NetworkCredential("florientmanfo3@gmail.com", "toto_1234");
+            login = new NetworkCredential("florientmanfo3@gmail.com", "123456789");
             client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.EnableSsl = true;
