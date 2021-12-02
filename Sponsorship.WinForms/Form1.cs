@@ -113,9 +113,9 @@ namespace Sponsorship.WinForms
                 else
                 {
                     sound.Stop();
-                    int index = secondLevels.IndexOf(parrain);
-
-                    secondLevels[index].Filleuls.Add(filleul);
+                    secondLevels.Remove(parrain);
+                    parrain.Filleuls.Add(filleul);
+                    secondLevels.Add(parrain);
                     firstLevels.Remove(filleul);
                     filleul.Parrain = parrain;
                     manager.Notify(filleul);

@@ -28,12 +28,12 @@ namespace Sponsorship.BLL
                 filleuls = null;
 
             //intialisation des informations de l'emetteur
-            login = new NetworkCredential("florientmanfo3@gmail.com", "123456789");
+            login = new NetworkCredential("emetteur@gmail.com", "123456789");
             client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.EnableSsl = true;
             client.Credentials = login;
-            msg = new MailMessage { From = new MailAddress("florientmanfo3@gmail.com", "IUC", Encoding.UTF8) };
+            msg = new MailMessage { From = new MailAddress("emetteur@gmail.com", "IUC", Encoding.UTF8) };
 
             msg.To.Add(new MailAddress(etudiant.Email));
             msg.Subject = "Parrainage";
@@ -176,7 +176,7 @@ namespace Sponsorship.BLL
                     }
 
                 var prand = new Random().Next(0, parrains.Count);
-                while (parrains[prand]?.Filleuls?.Count != 0)
+                while (parrains[prand].Filleuls.Count != 0)
                 {
                     if (!hasAll)
                         prand = new Random().Next(0, parrains.Count);
