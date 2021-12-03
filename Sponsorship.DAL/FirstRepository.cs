@@ -27,11 +27,11 @@ namespace Sponsorship.DAL
             while (!string.IsNullOrEmpty(item))
             {
                 var nS = new FirstLevel(ReadCell(i, 0), ReadCell(i, 1), long.Parse(Regex.Replace(ReadCell(i, 2), @"\s", "")), ReadCell(i, 3), @"img\"+ReadCell(i, 0) + ".png");
-                data.Add(nS);
+                excelDatas.Add(nS);
                 i++;
                 item = ReadCell(i, 0);
             }
-            return new List<FirstLevel>(data);
+            return new List<FirstLevel>(excelDatas);
         }
 
 

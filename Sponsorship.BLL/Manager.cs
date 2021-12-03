@@ -68,14 +68,14 @@ namespace Sponsorship.BLL
 
         FirstRepository firstRepository;
         SecondRepository secondRepository;
-        public List<Student> notSent;
+        Repository<Student> repository;
 
 
         public Manager(string paht)
         {
             firstRepository = new FirstRepository(paht, 0);
             secondRepository = new SecondRepository(paht, 1);
-            notSent = new List<Student>();
+            repository = new Repository<Student>();
         }
 
         public List<FirstLevel> GetFirstLevels()
@@ -97,7 +97,7 @@ namespace Sponsorship.BLL
             }
             catch
             {
-                notSent.Add(student);
+                repository.Add(new Student(student));
             }
         }
 

@@ -12,7 +12,7 @@ namespace Sponsorship.DAL
 {
     public class SecondRepository: Repository<SecondLevel>
     {
-        #region ExcelDataAccess
+        #region ExceldatasAccess
         public SecondRepository(string path, int sheet) : base(path, sheet)
         {
 
@@ -29,11 +29,11 @@ namespace Sponsorship.DAL
             while (!string.IsNullOrEmpty(item))
             {
                 var nS = new SecondLevel(UnicRandom(id, random)[i], ReadCell(i, 0), ReadCell(i, 1), long.Parse(Regex.Replace(ReadCell(i, 2), @"\s", "")), ReadCell(i, 3), @"img\"+ReadCell(i, 0)+".png");
-                data.Add(nS);
+                excelDatas.Add(nS);
                 i++;
                 item = ReadCell(i, 0);
             }
-            return new List<SecondLevel>(data);
+            return new List<SecondLevel>(excelDatas);
         }
 
         public void Commit(List<SecondLevel> students)

@@ -37,13 +37,15 @@ namespace Sponsorship.BO
         public override bool Equals(object obj)
         {
             return obj is Student student &&
+                   Id == student.Id &&
                    Phone == student.Phone &&
                    Email == student.Email;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1182145806;
+            int hashCode = 747038222;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + Phone.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
             return hashCode;

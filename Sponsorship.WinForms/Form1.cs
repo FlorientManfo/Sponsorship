@@ -135,8 +135,15 @@ namespace Sponsorship.WinForms
                         manager.Notify(p);
                     }
 
-                manager.Commit(associates);
-                Console.WriteLine(manager.notSent.Count);
+                try
+                {
+                    manager.Commit(associates);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 MessageBox.Show("Tirage terminé !", "Information", MessageBoxButtons.OK);
             }
         }
