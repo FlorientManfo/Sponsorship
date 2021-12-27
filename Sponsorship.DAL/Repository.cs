@@ -20,10 +20,10 @@ namespace Sponsorship.DAL
         protected ExcelWorksheet ws;
         protected List<T> excelDatas;
 
-        public Repository(string path, int sheet)
+        public Repository(string list, int sheet)
         {
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
-            excel = new ExcelPackage(path);
+            excel = new ExcelPackage(list);
             ws = excel.Workbook.Worksheets[sheet];
             excelDatas = new List<T>();
         }
@@ -39,22 +39,26 @@ namespace Sponsorship.DAL
 
         //Inscription des informations dans les cellules
         #endregion
-        #region  RANDOM
-        //assignation des identifients aléatoire et sans doublons
-        public static List<int> UnicRandom(List<int> id, Random random)
-        {
-            while (id.Count < 20)
-            {
-                var a = random.Next(0, 20);
-                if (id.Contains(a) == false)
-                {
-                    id.Add(a);
-                }
 
-            }
-            return id;
+        #region  RANDOM
+        ////assignation des identifients aléatoire et sans doublons
+        //public static List<int> UnicRandom(int size)
+        //{
+        //    Random random = new Random();
+        //    List<int> id = new List<int>();
+
+        //    while (id.Count < size)
+        //    {
+        //        var a = random.Next(1, size+1);
+        //        if (id.Contains(a) == false)
+        //        {
+        //            id.Add(a);
+        //        }
+
+        //    }
+        //    return id;
             
-        }
+        //}
 
         #endregion
 
@@ -69,6 +73,11 @@ namespace Sponsorship.DAL
 
             if (!fi.Directory.Exists)
                 fi.Directory.Create();
+            else if(fi.Exists)
+            {
+                fi.Delete();
+                fi.Create();
+            }
             serializer = new Serializer<List<T>>(Mode.JSON, PATH, Format.Indented);
             Restore();
         }

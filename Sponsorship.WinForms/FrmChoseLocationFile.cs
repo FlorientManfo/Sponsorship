@@ -21,30 +21,30 @@ namespace Sponsorship.WinForms
         private void btnListe_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Exel File|*.xlsx";
+            fileDialog.Filter = "Excel File|*.xlsx";
             if(fileDialog.ShowDialog() == DialogResult.OK)
             {
                 tbListe.Text = fileDialog.FileName;
-                Program.ListPath = fileDialog.FileName;
+                Program.List = fileDialog.FileName;
             }
             
         }
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-            //DirectoryInfo directoryInfo = new DirectoryInfo();
-            //Directory.
-            //var a = Directory.GetDirectories();
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image File|*.jpg";
 
-            //if (fileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    tbImage.Text = fileDialog.FileName;
-            //}
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbImage.Text = Path.GetDirectoryName(fileDialog.FileName);
+                Program.ImagePath = tbImage.Text;
+            }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            FrmMain form1 = new FrmMain();
             form1.Show();
             this.Close();
 

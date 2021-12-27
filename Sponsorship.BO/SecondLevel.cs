@@ -16,11 +16,10 @@ namespace Sponsorship.BO
             Level = 2;
             Filleuls = new List<FirstLevel>();
         }
-        public SecondLevel(int id,string fullName, string faculty, long phone, string email,string picture) :base(fullName, faculty, phone, email,picture)
+        public SecondLevel(string fullName, string faculty, long phone, string email,string picture) :base(fullName, faculty, phone, email,picture)
         {
             Level = 2;
             Filleuls = new List<FirstLevel>();
-            Id = id;
         }
         public SecondLevel(SecondLevel etudiant):base(new Student(etudiant.FullName, etudiant.Faculty, etudiant.Phone, etudiant.Email,etudiant.Picture))
         {

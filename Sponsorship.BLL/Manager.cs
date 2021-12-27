@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net.Mail;
 using Sponsorship.BO;
 using Sponsorship.DAL;
@@ -66,16 +64,20 @@ namespace Sponsorship.BLL
 
         #region Data manipulation
 
+        private static int count = 0;
         FirstRepository firstRepository;
         SecondRepository secondRepository;
         Repository<Student> repository;
 
+        private static int remainder;
 
-        public Manager(string paht)
+        public Manager(string listPath, string imagePath)
         {
-            firstRepository = new FirstRepository(paht, 0);
-            secondRepository = new SecondRepository(paht, 1);
+            firstRepository = new FirstRepository(listPath, 0, imagePath);
+            secondRepository = new SecondRepository(listPath, 1, imagePath);
             repository = new Repository<Student>();
+
+            remainder = firstRepository.GetALL().Count - secondRepository.GetALL().Count;
         }
 
         public List<FirstLevel> GetFirstLevels()
@@ -92,7 +94,7 @@ namespace Sponsorship.BLL
         {
             try
             {
-                SendMail(student);
+                SendMail(new Student(student));
                 Console.WriteLine("mail send !");
             }
             catch
@@ -106,86 +108,52 @@ namespace Sponsorship.BLL
             secondRepository.Commit(students);
         }
 
-        //public (SecondLevel, List<FirstLevel>) Matching(List<SecondLevel> parrains, List<FirstLevel> filleuls)
-        //{
-        //    if(filleuls.Count != 0)
-        //    {
-        //        var f1rand = new Random().Next(0, filleuls.Count);
-        //        var f2rand = new Random().Next(0, filleuls.Count);
 
-        //        for (int i = 0; i < filleuls.Count - 1; i++)
-        //        {
-        //            for (int j = i + 1; j < filleuls.Count; j++)
-        //            {
-        //                if (filleuls[i].Faculty != filleuls[j].Faculty)
-        //                {
-        //                    while (filleuls[f1rand].Faculty == filleuls[f2rand].Faculty)
-        //                    {
-        //                        f1rand = new Random().Next(0, filleuls.Count);
-        //                        f2rand = new Random().Next(0, filleuls.Count);
-        //                    }
-        //                    break;
-        //                }
-        //            }
-        //            while (f1rand == f2rand && filleuls.Count>=2)
-        //            {
-        //                f1rand = new Random().Next(0, filleuls.Count);
-        //                f2rand = new Random().Next(0, filleuls.Count);
-        //            }
-        //            break;
-        //        }
-
-        //        var hasAll = true;
-        //        foreach (var par in parrains)
-        //            if (par.Filleuls.Count == 0)
-        //            {
-        //                hasAll = false;
-        //                break;
-        //            }
-
-        //        var prand = new Random().Next(0, parrains.Count);
-        //        while (parrains[prand]?.Filleuls?.Count != 0)
-        //        {
-        //            if (!hasAll)
-        //                prand = new Random().Next(0, parrains.Count);
-        //            else
-        //                break;
-        //        }
-        //        List<FirstLevel> f = new List<FirstLevel>();
-        //        f.Add(filleuls[f1rand]);
-
-        //        if (filleuls[f1rand] != filleuls[f2rand])
-        //            f.Add(filleuls[f2rand]);
-
-        //        return (parrains[prand], f);
-        //    }
-        //    return (null, null);
-        //}
-
-        public (SecondLevel, FirstLevel) Matching(List<SecondLevel> parrains, List<FirstLevel> filleuls)
+        public SecondLevel Matching(List<FirstLevel> firsts, List<SecondLevel> seconds)
         {
-            if (filleuls.Count != 0)
-            {
-                var frand = new Random().Next(0, filleuls.Count);
-                var hasAll = true;
-                foreach (var par in parrains)
-                    if (par.Filleuls.Count == 0)
-                    {
-                        hasAll = false;
-                        break;
-                    }
+            if (firsts.Count == 0)
+                return null;
 
-                var prand = new Random().Next(0, parrains.Count);
-                while (parrains[prand].Filleuls.Count != 0)
+            Random rand = new Random();
+            SecondLevel second = new SecondLevel(seconds[rand.Next(0, seconds.Count)]);
+           
+            if(remainder > 0 && second.Filleuls.Count == 0)
+            { 
+                for( int i = 0; i<2; i++)
                 {
-                    if (!hasAll)
-                        prand = new Random().Next(0, parrains.Count);
+                    if(i == 0)
+                    {
+                        var first = new FirstLevel(firsts[rand.Next(0, firsts.Count)]);
+                        second.Filleuls.Add(first);
+                        firsts.Remove(first);
+                    }
                     else
-                        break;
+                    {
+                        FirstLevel first = null;
+                        do
+                        {
+                            first = new FirstLevel(firsts[rand.Next(0, firsts.Count)]);
+                        } while (first.Faculty == second.Filleuls[0].Faculty);
+                        firsts.Remove(first);
+                        second.Filleuls.Add(first);
+                    }
                 }
-                return (parrains[prand], filleuls[frand]);
+                remainder--;
+                seconds.Remove(second);
+                return second;
             }
-            return (null, null);
+            else
+            {
+                var first = new FirstLevel(firsts[rand.Next(0, firsts.Count)]);
+                second.Filleuls.Add(first);
+                firsts.Remove(first);
+                seconds.Remove(second);
+
+                if (remainder > 0)
+                    remainder--;
+
+                return second;
+            }
         }
 
 

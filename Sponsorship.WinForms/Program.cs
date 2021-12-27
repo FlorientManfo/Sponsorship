@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sponsorship.BLL;
 
 namespace Sponsorship.WinForms
 {
-    static class Program
+    public static class Program
     {
-        public static string ListPath;
+        public static string List;
         public static string ImagePath;
         /// <summary>
         /// Point d'entrée principal de l'application.
