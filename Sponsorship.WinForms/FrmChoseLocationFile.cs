@@ -44,9 +44,24 @@ namespace Sponsorship.WinForms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            try
+            {
             FrmMain form1 = new FrmMain();
-            form1.Show();
-            this.Close();
+                        form1.Show();
+                        this.Close();
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show
+                    (
+                        ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+            }
+            
 
         }
     }

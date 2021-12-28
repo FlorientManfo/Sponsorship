@@ -31,6 +31,8 @@ namespace Sponsorship.WinForms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.BtnStart = new System.Windows.Forms.Button();
@@ -73,6 +75,8 @@ namespace Sponsorship.WinForms
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel4.Controls.Add(this.Button2);
+            this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.btnClose);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -81,6 +85,32 @@ namespace Sponsorship.WinForms
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1178, 29);
             this.panel4.TabIndex = 11;
+            // 
+            // Button2
+            // 
+            this.Button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button2.Location = new System.Drawing.Point(1038, 0);
+            this.Button2.Margin = new System.Windows.Forms.Padding(2);
+            this.Button2.Name = "Button2";
+            this.Button2.Size = new System.Drawing.Size(52, 29);
+            this.Button2.TabIndex = 7;
+            this.Button2.Text = "-";
+            this.Button2.UseVisualStyleBackColor = true;
+            this.Button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1090, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(52, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "O";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -449,6 +479,8 @@ namespace Sponsorship.WinForms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnPause;
+        private System.Windows.Forms.Button Button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

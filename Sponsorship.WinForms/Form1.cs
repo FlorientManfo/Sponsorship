@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using Sponsorship.BLL;
@@ -30,11 +31,29 @@ namespace Sponsorship.WinForms
         }
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            while (seconds.Count != 0)
+            try
             {
-                Matching();
+                BtnPause.Enabled = true;
+                BtnPause.BackColor = Color.Blue;
+                BtnStart.Enabled = false;
+                BtnStart.BackColor = Color.Gray;
+                while (seconds.Count != 0)
+                {
+                    Matching();
+                }
+                manager.Commit(matched);
             }
-            manager.Commit(matched);
+            catch(Exception ex)
+            {
+                MessageBox.Show
+                    (
+                        ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+            }
+            
         }
 
         private void Matching()
@@ -51,23 +70,42 @@ namespace Sponsorship.WinForms
 
         private void BtnPause_Click(object sender, EventArgs e)
         {
+            BtnStart.Enabled = true;
+            BtnStart.BackColor = Color.Blue;
+            BtnPause.Enabled = false;
+            BtnPause.BackColor = Color.Gray;
+
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+            BtnPause.Enabled = false;
+            BtnPause.BackColor = Color.Gray;
         }
 
         
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();           
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Environment.Exit(0);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+                WindowState = FormWindowState.Maximized;
+            else
+                WindowState = FormWindowState.Normal;
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 
 }
