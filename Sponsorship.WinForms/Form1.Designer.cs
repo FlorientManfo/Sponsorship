@@ -45,6 +45,7 @@ namespace Sponsorship.WinForms
             this.lblFiliereP = new System.Windows.Forms.Label();
             this.pbParrain = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnRestart = new System.Windows.Forms.Button();
             this.BtnPause = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@ namespace Sponsorship.WinForms
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnRestart = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFilleul2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFilleul1)).BeginInit();
@@ -150,7 +150,7 @@ namespace Sponsorship.WinForms
             this.BtnStart.Name = "BtnStart";
             this.BtnStart.Size = new System.Drawing.Size(143, 62);
             this.BtnStart.TabIndex = 1;
-            this.BtnStart.Text = "Démarrer";
+            this.BtnStart.Text = "Start";
             this.BtnStart.UseVisualStyleBackColor = false;
             this.BtnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
@@ -274,6 +274,22 @@ namespace Sponsorship.WinForms
             this.panel3.Size = new System.Drawing.Size(1178, 729);
             this.panel3.TabIndex = 14;
             // 
+            // BtnRestart
+            // 
+            this.BtnRestart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnRestart.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtnRestart.FlatAppearance.BorderSize = 0;
+            this.BtnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRestart.ForeColor = System.Drawing.Color.White;
+            this.BtnRestart.Location = new System.Drawing.Point(509, 595);
+            this.BtnRestart.Name = "BtnRestart";
+            this.BtnRestart.Size = new System.Drawing.Size(143, 62);
+            this.BtnRestart.TabIndex = 15;
+            this.BtnRestart.Text = "Restart";
+            this.BtnRestart.UseVisualStyleBackColor = false;
+            this.BtnRestart.Click += new System.EventHandler(this.BtnRestart_Click);
+            // 
             // BtnPause
             // 
             this.BtnPause.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -286,7 +302,7 @@ namespace Sponsorship.WinForms
             this.BtnPause.Name = "BtnPause";
             this.BtnPause.Size = new System.Drawing.Size(143, 62);
             this.BtnPause.TabIndex = 14;
-            this.BtnPause.Text = "Arrêter";
+            this.BtnPause.Text = "Stop";
             this.BtnPause.UseVisualStyleBackColor = false;
             this.BtnPause.Click += new System.EventHandler(this.BtnPause_Click);
             // 
@@ -416,22 +432,6 @@ namespace Sponsorship.WinForms
             this.pictureBox1.Size = new System.Drawing.Size(1173, 50);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
-            // 
-            // BtnRestart
-            // 
-            this.BtnRestart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnRestart.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.BtnRestart.FlatAppearance.BorderSize = 0;
-            this.BtnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRestart.ForeColor = System.Drawing.Color.White;
-            this.BtnRestart.Location = new System.Drawing.Point(508, 595);
-            this.BtnRestart.Name = "BtnRestart";
-            this.BtnRestart.Size = new System.Drawing.Size(156, 62);
-            this.BtnRestart.TabIndex = 15;
-            this.BtnRestart.Text = "Redémarrer";
-            this.BtnRestart.UseVisualStyleBackColor = false;
-            this.BtnRestart.Click += new System.EventHandler(this.BtnRestart_Click);
             // 
             // FrmMain
             // 

@@ -46,9 +46,9 @@ namespace Sponsorship.WinForms
         {
             try
             {
-            FrmMain form1 = new FrmMain();
-                        form1.Show();
-                        this.Close();
+                FrmMain form1 = new FrmMain();
+                form1.Show();
+                this.Close();
             }
             catch
             (Exception ex)

@@ -32,6 +32,8 @@ namespace Sponsorship.WinForms
         [Obsolete]
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            BtnRestart.Enabled = false;
+            BtnPause.Enabled = false;
             manager = new Manager(Program.List, Program.ImagePath);
             seconds = manager.GetSecondLevels();
             firsts = manager.GetFirstLevels();
@@ -54,6 +56,7 @@ namespace Sponsorship.WinForms
             stop = false;
             BtnPause.Enabled = true;
             BtnStart.Enabled = false;
+            BtnStart.Text = "Continue";
         }
 
         [Obsolete]
@@ -63,6 +66,7 @@ namespace Sponsorship.WinForms
             t.Suspend();
             BtnPause.Enabled = false;
             BtnStart.Enabled = true;
+            
         }
 
         [Obsolete]
