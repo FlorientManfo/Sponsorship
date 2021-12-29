@@ -1,6 +1,7 @@
 ﻿using OfficeOpenXml.Style;
 using Sponsorship.BO;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Sponsorship.DAL
@@ -21,7 +22,7 @@ namespace Sponsorship.DAL
             string item = ReadCell(i, 0);
             while (!string.IsNullOrEmpty(item))
             {
-                var nS = new SecondLevel(ReadCell(i, 0), ReadCell(i, 1), long.Parse(Regex.Replace(ReadCell(i, 2), @"\s", "")), ReadCell(i, 3), $@"{imagePath}\" + ReadCell(i, 0) + ".jpg" != null ? $@"{imagePath}\" + ReadCell(i, 0) + ".jpg" : "../../Resources/unknow.png");
+                var nS = new SecondLevel(ReadCell(i, 0), ReadCell(i, 1), long.Parse(Regex.Replace(ReadCell(i, 2), @"\s", "")), ReadCell(i, 3), File.Exists($@"{imagePath}\" + ReadCell(i, 0) + ".jpg") ? $@"{imagePath}\" + ReadCell(i, 0) + ".jpg" : "../../Resources/unknow.png");
                 excelDatas.Add(nS);
                 i++;
                 item = ReadCell(i, 0);

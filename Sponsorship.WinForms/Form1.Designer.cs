@@ -31,8 +31,8 @@ namespace Sponsorship.WinForms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnMinimize = new System.Windows.Forms.Button();
+            this.BtnMaximize = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.BtnStart = new System.Windows.Forms.Button();
@@ -57,6 +57,7 @@ namespace Sponsorship.WinForms
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnRestart = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFilleul2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFilleul1)).BeginInit();
@@ -75,8 +76,8 @@ namespace Sponsorship.WinForms
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel4.Controls.Add(this.Button2);
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.BtnMinimize);
+            this.panel4.Controls.Add(this.BtnMaximize);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.btnClose);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -86,31 +87,31 @@ namespace Sponsorship.WinForms
             this.panel4.Size = new System.Drawing.Size(1178, 29);
             this.panel4.TabIndex = 11;
             // 
-            // Button2
+            // BtnMinimize
             // 
-            this.Button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button2.Location = new System.Drawing.Point(1038, 0);
-            this.Button2.Margin = new System.Windows.Forms.Padding(2);
-            this.Button2.Name = "Button2";
-            this.Button2.Size = new System.Drawing.Size(52, 29);
-            this.Button2.TabIndex = 7;
-            this.Button2.Text = "-";
-            this.Button2.UseVisualStyleBackColor = true;
-            this.Button2.Click += new System.EventHandler(this.Button2_Click);
+            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMinimize.Location = new System.Drawing.Point(1038, 0);
+            this.BtnMinimize.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(52, 29);
+            this.BtnMinimize.TabIndex = 7;
+            this.BtnMinimize.Text = "-";
+            this.BtnMinimize.UseVisualStyleBackColor = true;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
-            // button1
+            // BtnMaximize
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1090, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "O";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMaximize.Location = new System.Drawing.Point(1090, 0);
+            this.BtnMaximize.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnMaximize.Name = "BtnMaximize";
+            this.BtnMaximize.Size = new System.Drawing.Size(52, 29);
+            this.BtnMaximize.TabIndex = 6;
+            this.BtnMaximize.Text = "O";
+            this.BtnMaximize.UseVisualStyleBackColor = true;
+            this.BtnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
             // 
             // label3
             // 
@@ -121,9 +122,9 @@ namespace Sponsorship.WinForms
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(503, -2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 31);
+            this.label3.Size = new System.Drawing.Size(143, 31);
             this.label3.TabIndex = 5;
-            this.label3.Text = "PARAIN";
+            this.label3.Text = "PARRAIN";
             // 
             // btnClose
             // 
@@ -145,11 +146,11 @@ namespace Sponsorship.WinForms
             this.BtnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnStart.ForeColor = System.Drawing.Color.White;
-            this.BtnStart.Location = new System.Drawing.Point(509, 499);
+            this.BtnStart.Location = new System.Drawing.Point(509, 421);
             this.BtnStart.Name = "BtnStart";
             this.BtnStart.Size = new System.Drawing.Size(143, 62);
             this.BtnStart.TabIndex = 1;
-            this.BtnStart.Text = "Demarrer";
+            this.BtnStart.Text = "Démarrer";
             this.BtnStart.UseVisualStyleBackColor = false;
             this.BtnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
@@ -251,6 +252,7 @@ namespace Sponsorship.WinForms
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel3.Controls.Add(this.BtnRestart);
             this.panel3.Controls.Add(this.BtnPause);
             this.panel3.Controls.Add(this.BtnStart);
             this.panel3.Controls.Add(this.pictureBox2);
@@ -280,7 +282,7 @@ namespace Sponsorship.WinForms
             this.BtnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPause.ForeColor = System.Drawing.Color.White;
-            this.BtnPause.Location = new System.Drawing.Point(509, 591);
+            this.BtnPause.Location = new System.Drawing.Point(509, 513);
             this.BtnPause.Name = "BtnPause";
             this.BtnPause.Size = new System.Drawing.Size(143, 62);
             this.BtnPause.TabIndex = 14;
@@ -415,6 +417,22 @@ namespace Sponsorship.WinForms
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // BtnRestart
+            // 
+            this.BtnRestart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnRestart.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtnRestart.FlatAppearance.BorderSize = 0;
+            this.BtnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRestart.ForeColor = System.Drawing.Color.White;
+            this.BtnRestart.Location = new System.Drawing.Point(508, 595);
+            this.BtnRestart.Name = "BtnRestart";
+            this.BtnRestart.Size = new System.Drawing.Size(156, 62);
+            this.BtnRestart.TabIndex = 15;
+            this.BtnRestart.Text = "Redémarrer";
+            this.BtnRestart.UseVisualStyleBackColor = false;
+            this.BtnRestart.Click += new System.EventHandler(this.BtnRestart_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,8 +497,9 @@ namespace Sponsorship.WinForms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnPause;
-        private System.Windows.Forms.Button Button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnMinimize;
+        private System.Windows.Forms.Button BtnMaximize;
+        private System.Windows.Forms.Button BtnRestart;
     }
 }
 

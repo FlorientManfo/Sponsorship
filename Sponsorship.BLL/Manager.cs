@@ -26,12 +26,12 @@ namespace Sponsorship.BLL
                 filleuls = null;
 
             //intialisation des informations de l'emetteur
-            login = new NetworkCredential("emetteur@gmail.com", "123456789");
+            login = new NetworkCredential("émetteur@gmail.com", "mot de passe");
             client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.EnableSsl = true;
             client.Credentials = login;
-            msg = new MailMessage { From = new MailAddress("emetteur@gmail.com", "IUC", Encoding.UTF8) };
+            msg = new MailMessage { From = new MailAddress("émetteur@gmail.com", "IUC", Encoding.UTF8) };
 
             msg.To.Add(new MailAddress(etudiant.Email));
             msg.Subject = "Parrainage";
@@ -90,11 +90,16 @@ namespace Sponsorship.BLL
             return secondRepository.GetALL();
         }
 
-        public void Notify(Student student)
+        public void Notify(SecondLevel student)
         {
             try
             {
-                SendMail(new Student(student));
+                SendMail(new SecondLevel(student));
+                foreach(var f in filleuls)
+                {
+                    f.Parrain = student;
+                    SendMail(f);
+                }
                 Console.WriteLine("mail send !");
             }
             catch
@@ -158,7 +163,5 @@ namespace Sponsorship.BLL
 
 
         #endregion
-
-
     }
 }
